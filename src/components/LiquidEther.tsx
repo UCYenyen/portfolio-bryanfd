@@ -644,7 +644,11 @@ export default function LiquidEther({
         super({ output: simProps.dst });
         this.init(simProps);
       }
-      init(simProps: any) {
+      init(simProps: {
+        cellScale: THREE.Vector2;
+        cursor_size: number;
+        dst: THREE.WebGLRenderTarget;
+      }) {
         super.init();
         const mouseG = new THREE.PlaneGeometry(1, 1);
         const mouseM = new THREE.RawShaderMaterial({
@@ -972,30 +976,30 @@ export default function LiquidEther({
           this.fbos[key]!.setSize(this.fboSize.x, this.fboSize.y);
         }
       }
-      update() {
-        if (this.options.isBounce) this.boundarySpace.set(0, 0);
-        else this.boundarySpace.copy(this.cellScale);
-        this.advection.update({ dt: this.options.dt, isBounce: this.options.isBounce, BFECC: this.options.BFECC });
-        this.externalForce.update({
-          cursor_size: this.options.cursor_size,
-          mouse_force: this.options.mouse_force,
-          cellScale: this.cellScale
-        });
-        let vel: any = this.fbos.vel_1;
-        if (this.options.isViscous) {
-          vel = this.viscous.update({
-            viscous: this.options.viscous,
-            iterations: this.options.iterations_viscous,
-            dt: this.options.dt
+    update() {
+          if (this.options.isBounce) this.boundarySpace.set(0, 0);
+          else this.boundarySpace.copy(this.cellScale);
+          this.advection.update({ dt: this.options.dt, isBounce: this.options.isBounce, BFECC: this.options.BFECC });
+          this.externalForce.update({
+            cursor_size: this.options.cursor_size,
+            mouse_force: this.options.mouse_force,
+            cellScale: this.cellScale
           });
+          let vel: THREE.WebGLRenderTarget = this.fbos.vel_1!;
+          if (this.options.isViscous) {
+            vel = this.viscous.update({
+              viscous: this.options.viscous,
+              iterations: this.options.iterations_viscous,
+              dt: this.options.dt
+            });
+          }
+          this.divergence.update({ vel });
+          const pressure = this.poisson.update({ iterations: this.options.iterations_poisson });
+          this.pressure.update({ vel, pressure });
         }
-        this.divergence.update({ vel });
-        const pressure = this.poisson.update({ iterations: this.options.iterations_poisson });
-        this.pressure.update({ vel, pressure });
       }
-    }
-
-    class Output {
+  
+      class Output {
       simulation: Simulation;
       scene: THREE.Scene;
       camera: THREE.Camera;
@@ -1062,7 +1066,7 @@ export default function LiquidEther({
           this.lastUserInteraction = performance.now();
           if (this.autoDriver) this.autoDriver.forceStop();
         };
-        this.autoDriver = new AutoDriver(Mouse, this as any, {
+        this.autoDriver = new AutoDriver(Mouse, this, {
           enabled: props.autoDemo,
           speed: props.autoSpeed,
           resumeDelay: props.autoResumeDelay,
