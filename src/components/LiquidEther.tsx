@@ -558,23 +558,23 @@ export default function LiquidEther({
         this.uniforms = this.props.material?.uniforms;
       }
       
-      init(..._args: unknown[]) {
-        this.scene = new THREE.Scene();
-        this.camera = new THREE.Camera();
-        if (this.uniforms) {
-          this.material = new THREE.RawShaderMaterial(this.props.material!);
-          this.geometry = new THREE.PlaneGeometry(2, 2);
-          this.plane = new THREE.Mesh(this.geometry, this.material);
-          this.scene.add(this.plane);
-        }
-      }
-      
-      update(..._args: unknown[]) {
-        if (!Common.renderer || !this.scene || !this.camera) return;
-        Common.renderer.setRenderTarget(this.props.output || null);
-        Common.renderer.render(this.scene, this.camera);
-        Common.renderer.setRenderTarget(null);
-      }
+  init() {
+    this.scene = new THREE.Scene();
+    this.camera = new THREE.Camera();
+    if (this.uniforms) {
+      this.material = new THREE.RawShaderMaterial(this.props.material!);
+      this.geometry = new THREE.PlaneGeometry(2, 2);
+      this.plane = new THREE.Mesh(this.geometry, this.material);
+      this.scene.add(this.plane);
+    }
+  }
+  
+  update() {
+    if (!Common.renderer || !this.scene || !this.camera) return;
+    Common.renderer.setRenderTarget(this.props.output || null);
+    Common.renderer.render(this.scene, this.camera);
+    Common.renderer.setRenderTarget(null);
+  }
     }
 
     class Advection extends ShaderPass {
@@ -642,14 +642,15 @@ export default function LiquidEther({
         dst: THREE.WebGLRenderTarget;
       }) {
         super({ output: simProps.dst });
-        this.init(simProps);
+        this.init();
+        this.initMouse(simProps);
       }
-      init(simProps: {
+      
+      initMouse(simProps: {
         cellScale: THREE.Vector2;
         cursor_size: number;
         dst: THREE.WebGLRenderTarget;
       }) {
-        super.init();
         const mouseG = new THREE.PlaneGeometry(1, 1);
         const mouseM = new THREE.RawShaderMaterial({
           vertexShader: mouse_vert,

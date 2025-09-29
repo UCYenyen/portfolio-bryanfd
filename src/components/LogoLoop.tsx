@@ -81,7 +81,7 @@ const useResizeObserver = (
     return () => {
       observers.forEach(observer => observer?.disconnect());
     };
-  }, dependencies);
+  }, [callback, elements, ...dependencies]);
 };
 
 const useImageLoader = (
@@ -121,7 +121,7 @@ const useImageLoader = (
         img.removeEventListener('error', handleImageLoad);
       });
     };
-  }, dependencies);
+  }, [seqRef, onLoad, ...dependencies]);
 };
 
 const useAnimationLoop = (
@@ -191,7 +191,7 @@ const useAnimationLoop = (
       }
       lastTimestampRef.current = null;
     };
-  }, [targetVelocity, seqWidth, isHovered, pauseOnHover]);
+  }, [trackRef, targetVelocity, seqWidth, isHovered, pauseOnHover]);
 };
 
 export const LogoLoop = React.memo<LogoLoopProps>(

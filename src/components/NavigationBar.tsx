@@ -13,7 +13,7 @@ export default function NavigationBar() {
     const navbar = navRef.current;
     if (!navbar) return;
 
-    let tl = gsap.timeline({ paused: true });
+    const tl = gsap.timeline({ paused: true });
 
     // Animation for scrolled state - hanya mengubah background
     tl.to(navbar, {
@@ -133,7 +133,7 @@ export default function NavigationBar() {
           </Link>
         </div>
         <div className="flex items-center justify-center">
-          <button className="bg-green font-bold text-black font-bold px-6 py-2 rounded-full text-xl font-futura-condensed hover:underline">
+          <button className="bg-green font-bold text-black px-6 py-2 rounded-full text-xl font-futura-condensed hover:underline">
             LET{"'"}S TALK
           </button>
         </div>
