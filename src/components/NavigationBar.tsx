@@ -18,7 +18,7 @@ export default function NavigationBar() {
     // Animation for scrolled state - hanya mengubah background
     tl.to(navbar, {
       backgroundColor: "rgba(38, 38, 38, 0.95)",
-      width: "55vw",
+      width: window.innerWidth < 768 ? "80vw" : "55vw", // 80vw for mobile, 55vw for larger screens
       backdropFilter: "blur(12px)",
       borderRadius: "24px",
       boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
@@ -99,8 +99,8 @@ export default function NavigationBar() {
   return (
     <nav className="fixed flex justify-center items-center w-screen overflow-hidden z-50">
       <div ref={navRef} className="w-full flex justify-between gap-1 sm:gap-4 items-center mt-4 py-4 px-8">
-        <h1 className="text-white text-4xl pr-6 font-bold font-futura-condensed">BRYAN</h1>
-        <div className="text-white flex gap-1 sm:gap-8 items-center justify-center">
+        <h1 className="text-white text-3xl md:text-4xl pr-6 font-bold font-futura-condensed">BRYAN</h1>
+        <div className="text-white gap-1 hidden md:flex sm:gap-8 items-center justify-center">
           <Link
             className="nav-link text-xl font-bold font-futura-condensed hover:underline"
             href="#about"
@@ -132,10 +132,15 @@ export default function NavigationBar() {
             CONTACT
           </Link>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="items-center hidden md:flex justify-center">
           <button className="bg-green font-bold text-black px-6 py-2 rounded-full text-xl font-futura-condensed hover:underline">
             LET{"'"}S TALK
           </button>
+        </div>
+        <div className="flex md:hidden flex-col gap-1">
+          <div className="w-8 h-1 bg-white rounded"></div>
+          <div className="w-8 h-1 bg-white rounded"></div>
+          <div className="w-8 h-1 bg-white rounded"></div>
         </div>
       </div>
     </nav>

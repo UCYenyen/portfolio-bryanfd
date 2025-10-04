@@ -16,6 +16,7 @@ import {
   SiExpress,
   SiPostgresql,
 } from "react-icons/si";
+import ProjectsSection from "@/components/ProjectsSection";
 
 export default function Home() {
   const techLogos = [
@@ -85,9 +86,11 @@ export default function Home() {
     <div className="">
       <StackingCards>
         {/* First Section */}
-        <div className="relative min-h-screen w-screen justify-center items-center flex flex-col bg-black">
+        <div className="relative min-h-screen w-screen justify-center items-center flex flex-col bg-background">
           <div className="absolute top-0 left-0 w-screen h-full">
-            <div style={{ width: "100%", height: "100%", position: "relative" }}>
+            <div
+              style={{ width: "100%", height: "100%", position: "relative" }}
+            >
               <LiquidEther
                 colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
                 mouseForce={50}
@@ -96,7 +99,7 @@ export default function Home() {
                 viscous={60}
                 iterationsViscous={128}
                 iterationsPoisson={128}
-                resolution={0.35}
+                resolution={0.5}
                 isBounce={true}
                 autoDemo={true}
                 autoSpeed={0.025}
@@ -107,32 +110,32 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="relative z-10 flex flex-col justify-center items-center">
-            <h1 className="mt-[25%] font-futura-condensed text-white text-9xl font-extrabold">
+          <div className="relative z-10 flex flex-col gap-2 sm:gap-0 justify-center items-center">
+            <h1 className="mt-[25%] font-futura-condensed text-white text-5xl md:text-9xl font-extrabold text-center">
               BRING YOUR
             </h1>
             <div className="w-full flex justify-center items-center space-x-4 relative">
-              <h1 className="relative z-5 -mt-2 font-futura-condensed text-9xl font-extrabold text-pink">
+              <h1 className="relative z-5 -mt-2 font-futura-condensed text-5xl md:text-9xl font-extrabold text-pink text-center">
                 IDEAS
               </h1>
               <Image
-                className="absolute right-[15%] bottom-[10%] rotate-[15deg]"
+                className="absolute right-[10%] md:right-[15%] w-9 h-auto bottom-[10%] rotate-[15deg]"
                 src={"/images/icons/idea.svg"}
                 width={70}
                 height={70}
                 alt="idea-icon"
               />
             </div>
-            <h1 className="-mt-2 font-futura-condensed text-white text-9xl font-extrabold">
+            <h1 className="-mt-2 font-futura-condensed text-white text-5xl md:text-9xl font-extrabold text-center">
               INTO REALITY
             </h1>
           </div>
-          <h1 className="relative z-10 text-white/80 font-futura-regular text-center text-2xl w-1/3 leading-8">
-            From imaginative game worlds to dynamic web applications, I bring your
-            most ambitious digital ideas to life with clean, expert code.
+          <h1 className="mt-4 md:mt-0 relative z-10 text-white/80 font-futura-regular text-center text-lg md:text-2xl w-1/2 md:w-1/3 leading-6 md:leading-8">
+            From imaginative game worlds to dynamic web applications, I bring
+            your most ambitious digital ideas to life with clean, expert code.
           </h1>
           <LogoLoop
-            className="relative z-10 mt-[10%]"
+            className="relative z-10 md:mt-[10%]"
             logos={techLogos}
             speed={20}
             direction="left"
@@ -145,9 +148,9 @@ export default function Home() {
         </div>
 
         {/* Second Section */}
-        <div className="relative min-h-screen w-screen justify-center items-center flex flex-col bg-gradient-to-b from-purple-900 to-black">
+        <div className="relative min-h-screen w-screen justify-center items-center flex flex-col bg-gradient-to-b from-zinc-900 to-black">
           <h1 className="font-futura-condensed text-white text-9xl font-extrabold">
-            DEDICATED TO 
+            DEDICATED TO
           </h1>
           <h1 className="relative z-5 -mt-2 font-futura-condensed text-9xl font-extrabold text-pink">
             DELIVER RESULTS
@@ -155,20 +158,10 @@ export default function Home() {
           <h1 className="-mt-2 font-futura-condensed text-white text-9xl font-extrabold">
             FOR YOU
           </h1>
+          <ProjectsSection/>
         </div>
 
         {/* Second Section */}
-        <div className="relative min-h-screen w-screen justify-center items-center flex flex-col bg-gradient-to-b from-purple-900 to-black">
-          <h1 className="font-futura-condensed text-white text-9xl font-extrabold">
-            DEDICATED TO 
-          </h1>
-          <h1 className="relative z-5 -mt-2 font-futura-condensed text-9xl font-extrabold text-pink">
-            DELIVER RESULTS
-          </h1>
-          <h1 className="-mt-2 font-futura-condensed text-white text-9xl font-extrabold">
-            FOR YOU
-          </h1>
-        </div>
       </StackingCards>
     </div>
   );
