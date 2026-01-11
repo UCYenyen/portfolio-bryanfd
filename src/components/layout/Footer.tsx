@@ -31,7 +31,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div className="w-full lg:w-5/12 grid grid-cols-2 gap-10">
+                    <div className="w-full lg:w-5/12 grid grid-cols-2 gap-5 md:gap-10">
                         <div>
                             <h3 className="text-white font-bold uppercase mb-6 font-futura-condensed tracking-wider text-2xl">Explore</h3>
                             <ul className="space-y-3 text-gray-400 font-futura-medium text-lg">
@@ -69,7 +69,7 @@ export default function Footer() {
 
                 <div className="border-t border-gray-800 pt-8 flex flex-col-reverse lg:flex-row justify-between items-center gap-6 text-xs text-gray-500">
                     <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-center md:text-left">
-                        <p>&copy; 2026 DEVO</p>
+                        <p>&copy; 2026 BRYAN FERNANDO DINATA</p>
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-6">
