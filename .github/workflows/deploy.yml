@@ -12,9 +12,9 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
-          username: bryan
+          username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          port: 22
+          port: ${{ secrets.VPS_PORT }}
           script: |
             # 1. Masuk ke folder project (milik user bryan)
             cd /var/www/bryan/portfolio-bryanfd
