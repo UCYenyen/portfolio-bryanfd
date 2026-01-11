@@ -17,7 +17,7 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           script: |
             # 1. Masuk ke folder project (milik user bryan)
-            cd /var/www/bryan/portfolio-bryan
+            cd /var/www/bryan/portfolio-bryanfd
             
             # 2. Tarik kode terbaru
             # Git tidak akan error karena kita sudah set 'safe.directory'
