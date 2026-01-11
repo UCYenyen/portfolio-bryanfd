@@ -295,8 +295,9 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             className={cx(
               'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
               '[-webkit-user-drag:none] pointer-events-none',
-              '[image-rendering:-webkit-optimize-contrast]',
+              '[image-rendering:-webkit-optimize-contrast] rounded-xl',
               'motion-reduce:transition-none',
+              isImageItem(item) && `aspect-video object-cover fill`,
               scaleOnHover &&
                 'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
             )}

@@ -15,7 +15,7 @@ interface StackingCardProps {
 const StackingCard: React.FC<StackingCardProps> = ({ 
   children, 
   index, 
-  backgroundColor = '#000'
+  backgroundColor = '#0a0a0a'
 }) => {
   const cardRef = useRef<HTMLDivElement>(null)
 
@@ -62,7 +62,6 @@ const StackingCards: React.FC<StackingCardsProps> = ({ children, className = '' 
   return (
     <div 
       className={`relative ${className}`}
-      // The container height is essential for the scrollable area
       style={{ height: `${totalCards * 100}vh` }}
     >
       {React.Children.map(children, (child, index) => (
