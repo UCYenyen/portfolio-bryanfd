@@ -11,6 +11,7 @@ export default function Home() {
         <DedicationSection />
       </StackingCards>
       <ProjectsSection></ProjectsSection>
+      {/*  */}
     </main>
   );
 }
