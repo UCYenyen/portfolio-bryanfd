@@ -11,7 +11,6 @@ export default function NavigationBar() {
     const navLinks = [
         { label: "PROJECTS", href: "/projects" },
         { label: "SERVICES", href: "/services" },
-        { label: "CONTACT", href: "/contact" },
     ];
 
     useEffect(() => {

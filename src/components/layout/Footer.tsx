@@ -5,7 +5,6 @@ export default function Footer() {
     const navLinks = [
         { label: "Projects", href: "/projects" },
         { label: "Services", href: "/services" },
-        { label: "Contact", href: "/contact" },
     ];
     return (
         <footer className="bg-gray text-white w-full px-6 py-12 md:px-12 md:py-20 overflow-hidden font-sans">
@@ -46,12 +45,12 @@ export default function Footer() {
                         </div>
 
                         <div className="flex flex-col gap-8">
-                            <div>
+                            <div className='overflow-x-hidden'>
                                 <h3 className="text-white font-bold uppercase mb-6 font-futura-condensed tracking-wider text-2xl">Say Hello</h3>
                                 <a href="tel:+628123187161" className="block text-gray-400 hover:text-white mb-2 font-futura-medium">
                                     +62 812-318-7161
                                 </a>
-                                <a href="mailto:bryanfernandodinata@gmail.com" className="block text-gray-400 hover:text-white font-futura-medium border-b border-gray-600 pb-1 inline-block">
+                                <a href="mailto:bryanfernandodinata@gmail.com" className="block text-gray-400 hover:text-white font-futura-medium border-b border-gray-600 pb-1 overflow-ellipsis">
                                     bryanfernandodinata@gmail.com
                                 </a>
                             </div>
