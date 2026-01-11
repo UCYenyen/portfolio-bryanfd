@@ -1,5 +1,4 @@
 name: Deploy Ucyenyen Portfolio
-
 on:
   push:
     branches:
@@ -18,7 +17,7 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           script: |
             # 1. Masuk ke folder project (milik user bryan)
-            cd /var/www/devo/Portfolio
+            cd /var/www/bryan/portfolio-bryan
             
             # 2. Tarik kode terbaru
             # Git tidak akan error karena kita sudah set 'safe.directory'
