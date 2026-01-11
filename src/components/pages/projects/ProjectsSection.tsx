@@ -2,7 +2,6 @@
 
 import React, { useRef } from 'react';
 import Project from '@/components/common/Project';
-import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -48,6 +47,11 @@ export default function ProjectsSection() {
       imageUrl: "/images/projects/iseko.svg",
       description: "Iseko : Isekai Koneko is an enchanting fantasy game that transports players to a magical world filled with adorable cat companions. Players embark on a quest to save the realm from darkness, utilizing unique abilities and forming bonds with their feline allies to overcome challenges and uncover the secrets of the isekai universe."
     },
+    {
+      title: "DARKNESS EVOLUTION",
+      imageUrl: "/images/projects/darknessevo.svg",
+      description: "Darkness Evolution is an immersive action-adventure game that takes players on a thrilling journey through a mysterious and perilous world. Players assume the role of a hero tasked with battling dark forces, solving intricate puzzles, and uncovering hidden secrets to restore light and balance to the realm."
+    },
   ];
 
   useGSAP(() => {
@@ -72,12 +76,12 @@ export default function ProjectsSection() {
 
   return (
     <section ref={containerRef} className="min-h-screen w-full flex justify-center items-center flex-col gap-4 py-20">
-      <div className="w-[80%] grid grid-cols-1 md:grid-cols-2 gap-18 items-start">
+      <div className="w-[80%] grid grid-cols-1 md:grid-cols-3 gap-18 items-start">
         {projects.map((project, index) => (
           <div
             key={index}
             style={{ willChange: 'transform, opacity' }}
-            className={`project-card w-full ${index % 2 !== 0 ? 'md:mt-24' : 'md:-mt-16'}`}
+            className={`project-card w-full`}
           >
             <Project
               title={project.title}
@@ -86,16 +90,6 @@ export default function ProjectsSection() {
             />
           </div>
         ))}
-        
-        <div className='project-card flex flex-col gap-4 justify-center p-12 items-center relative w-full aspect-square bg-gray rounded-xl overflow-hidden shadow-lg' style={{borderRadius: '0.75rem'}}>
-          <h3 className='text-white font-futura-condensed font-extrabold text-4xl md:text-9xl text-start'>WANNA SEE MORE?</h3>
-          <p className='text-gray-400 font-futura-medium text-sm md:text-xl'>
-            Explore our portfolio and discover what we can achieve for you. {`Let's`} create something extraordinary together.
-          </p>
-          <Link href="/works" className="mt-0 md:mt-8 bg-green px-4 py-2 self-start text-gray rounded-full font-bold text-lg md:text-xl font-futura-condensed hover:underline">
-            SEE MORE
-          </Link>
-        </div>
       </div>
     </section>
   )

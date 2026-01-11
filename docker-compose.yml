@@ -1,0 +1,18 @@
+services:
+  # Saya ubah nama service-nya juga biar rapi (opsional)
+  ucyenyen_portfolio:
+    # INI YANG PENTING: Nama container baru
+    container_name: ucyenyen_portfolio_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    networks:
+      - global_proxy
+
+networks:
+  global_proxy:
+    external: true

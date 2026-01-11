@@ -1,7 +1,12 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Smile } from 'lucide-react'; // Pastikan install lucide-react atau ganti dengan icon lain
+import { Smile } from 'lucide-react'; // Pastikan install lucide-react atau ganti dengan icon lain
 import Link from 'next/link';
 export default function Footer() {
+    const navLinks = [
+        { label: "Projects", href: "/projects" },
+        { label: "Services", href: "/services" },
+        { label: "Contact", href: "/contact" },
+    ];
     return (
         <footer className="bg-gray text-white w-full px-6 py-12 md:px-12 md:py-20 overflow-hidden font-sans">
             <div className="max-w-7xl mx-auto">
@@ -30,10 +35,10 @@ export default function Footer() {
                         <div>
                             <h3 className="text-white font-bold uppercase mb-6 font-futura-condensed tracking-wider text-2xl">Explore</h3>
                             <ul className="space-y-3 text-gray-400 font-futura-medium text-lg">
-                                {['About', 'Works', 'Services', 'Contact'].map((item) => (
-                                    <li key={item}>
-                                        <a href="#" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5 inline-block">
-                                            {item}
+                                {navLinks.map((link) => (
+                                    <li key={link.label}>
+                                        <a href={link.href} className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5 inline-block">
+                                            {link.label}
                                         </a>
                                     </li>
                                 ))}
@@ -46,8 +51,8 @@ export default function Footer() {
                                 <a href="tel:+628123187161" className="block text-gray-400 hover:text-white mb-2 font-futura-medium">
                                     +62 812-318-7161
                                 </a>
-                                <a href="mailto:hello@devo.com" className="block text-gray-400 hover:text-white font-futura-medium border-b border-gray-600 pb-1 inline-block">
-                                    thedevvolution@gmail.com
+                                <a href="mailto:bryanfernandodinata@gmail.com" className="block text-gray-400 hover:text-white font-futura-medium border-b border-gray-600 pb-1 inline-block">
+                                    bryanfernandodinata@gmail.com
                                 </a>
                             </div>
 

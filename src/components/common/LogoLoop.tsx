@@ -1,6 +1,6 @@
 'use client'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-
+import Image from 'next/image';
 export type LogoItem =
   | {
       node: React.ReactNode;
@@ -291,7 +291,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             {item.node}
           </span>
         ) : (
-          <img
+          <Image
             className={cx(
               'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
               '[-webkit-user-drag:none] pointer-events-none',
@@ -302,7 +302,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
                 'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
             )}
             src={isImageItem(item) ? item.src : ''}
-            srcSet={isImageItem(item) ? item.srcSet : undefined}
+            // srcSet={isImageItem(item) ? item.srcSet : undefined}
             sizes={isImageItem(item) ? item.sizes : undefined}
             width={isImageItem(item) ? item.width : undefined}
             height={isImageItem(item) ? item.height : undefined}

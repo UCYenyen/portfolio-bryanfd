@@ -5,12 +5,12 @@ import ProjectsSection from "@/components/pages/home/ProjectsSection";
 
 export default function Home() {
   return (
-    <>
+    <main className="overflow-hidden flex flex-col gap-24">
       <StackingCards>
         <HeroSection />
         <DedicationSection />
       </StackingCards>
       <ProjectsSection></ProjectsSection>
-    </>
+    </main>
   );
 }
