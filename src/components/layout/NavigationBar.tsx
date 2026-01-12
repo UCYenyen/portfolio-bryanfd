@@ -109,9 +109,9 @@ export default function NavigationBar() {
                     ))}
                 </div>
                 <div className="items-center hidden md:flex justify-center">
-                    <button className="bg-green font-bold text-black px-6 py-2 rounded-full text-xl font-futura-condensed hover:underline">
+                    <Link href="https://wa.me/6281231847161" target="_blank" className="bg-green font-bold text-black px-6 py-2 rounded-full text-xl font-futura-condensed hover:underline">
                         LET{"'"}S TALK
-                    </button>
+                    </Link>
                 </div>
                 <div className="flex md:hidden flex-col gap-1">
                     <div className="w-8 h-1 bg-white rounded"></div>

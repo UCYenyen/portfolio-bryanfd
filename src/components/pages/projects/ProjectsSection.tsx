@@ -75,7 +75,7 @@ export default function ProjectsSection() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="min-h-screen w-full flex justify-center items-center flex-col gap-4 py-20">
+    <section ref={containerRef} className="w-full flex justify-center items-center flex-col gap-4 pb-20">
       <div className="w-[80%] grid grid-cols-1 md:grid-cols-3 gap-18 items-start">
         {projects.map((project, index) => (
           <div

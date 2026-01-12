@@ -24,7 +24,7 @@ export default function Footer() {
                         </div>
 
                         <div className="mt-8">
-                            <Link href="/works" className="mt-8 bg-green px-4 py-2 self-start text-gray rounded-full font-bold text-xl font-futura-condensed hover:underline">
+                            <Link href="https://wa.me/6281231847161" target="_blank" className="mt-8 bg-green px-4 py-2 self-start text-gray rounded-full font-bold text-xl font-futura-condensed hover:underline">
                                 {"LET'S TALK"}
                             </Link>
                         </div>
@@ -47,12 +47,12 @@ export default function Footer() {
                         <div className="flex flex-col gap-8">
                             <div className='overflow-x-hidden'>
                                 <h3 className="text-white font-bold uppercase mb-6 font-futura-condensed tracking-wider text-2xl">Say Hello</h3>
-                                <a href="tel:+628123187161" className="block text-gray-400 hover:text-white mb-2 font-futura-medium">
+                                <Link href="https://wa.me/6281231847161" target='_blank' className="block text-gray-400 hover:text-white mb-2 font-futura-medium">
                                     +62 812-318-7161
-                                </a>
-                                <a href="mailto:bryanfernandodinata@gmail.com" className="block text-gray-400 hover:text-white font-futura-medium border-b border-gray-600 pb-1 overflow-ellipsis">
+                                </Link>
+                                <Link href="mailto:bryanfernandodinata@gmail.com" target='_blank' className="block text-gray-400 hover:text-white font-futura-medium border-b border-gray-600 pb-1 overflow-ellipsis">
                                     bryanfernandodinata@gmail.com
-                                </a>
+                                </Link>
                             </div>
 
                             {/* <div className="flex gap-4">
