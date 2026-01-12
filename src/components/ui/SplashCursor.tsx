@@ -74,9 +74,9 @@ export default function SplashCursor({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const pointers: Pointer[] = [pointerPrototype()];
+    let pointers: Pointer[] = [pointerPrototype()];
 
-    const config = {
+    let config = {
       SIM_RESOLUTION: SIM_RESOLUTION!,
       DYE_RESOLUTION: DYE_RESOLUTION!,
       CAPTURE_RESOLUTION: CAPTURE_RESOLUTION!,
