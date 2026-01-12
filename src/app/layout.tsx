@@ -4,6 +4,8 @@ import "./globals.css";
 import NavigationBar from "@/components/layout/NavigationBar";
 import Footer from "@/components/layout/Footer";
 import LetsTalk from "@/components/layout/LetsTalk";
+import SplashCursor from "@/components/ui/SplashCursor";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,6 +34,7 @@ export default function RootLayout({
         <NavigationBar />
         {children}
         <Footer />
+        <SplashCursor />
         <LetsTalk />
       </body>
     </html>
