@@ -20,6 +20,7 @@ jobs:
             cd /var/www/bryan/portfolio-bryanfd
             
             # 2. Tarik kode terbaru
+            git fetch origin main
             # Git tidak akan error karena kita sudah set 'safe.directory'
             git pull origin main
             
