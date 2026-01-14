@@ -92,7 +92,7 @@ export default function ProjectsSection() {
           <p className='text-gray-400 font-futura-medium text-sm md:text-xl'>
             Explore our portfolio and discover what we can achieve for you. {`Let's`} create something extraordinary together.
           </p>
-          <Link href="/works" className="mt-0 md:mt-8 bg-green px-4 py-2 self-start text-gray rounded-full font-bold text-lg md:text-xl font-futura-condensed hover:underline">
+          <Link href="/projects" className="mt-0 md:mt-8 bg-green px-4 py-2 self-start text-gray rounded-full font-bold text-lg md:text-xl font-futura-condensed hover:underline">
             SEE MORE
           </Link>
         </div>
