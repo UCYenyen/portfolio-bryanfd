@@ -16,22 +16,22 @@ export default function ProjectsSection() {
     {
       title: "O-WEEK 2025",
       imageUrl: "/images/projects/oweek-project.webp",
-      description: "O-WEEK 2025 is an exciting event organized for new students at Universitas Ciputra. This week-long orientation program aims to welcome and introduce freshmen to campus life, academic culture, and various extracurricular activities. Through engaging sessions, interactive workshops, and fun social events, O-WEEK 2025 helps new students build connections, develop essential skills, and feel a sense of belonging within the university community."
+      description: "O-WEEK 2025 is an exciting event organized for new students at Universitas Ciputra. Checkout the website -> https://oweek-2025-fix.vercel.app."
     },
     {
       title: "ENTHUSIAST RUN",
       imageUrl: "/images/projects/enthusiast-project.webp",
-      description: "Enthusiast Run is a thrilling running event designed for fitness enthusiasts and athletes of all levels. This event offers participants the opportunity to challenge themselves, improve their endurance, and connect with like-minded individuals who share a passion for running"
+      description: "Enthusiast Run is a thrilling running event designed for fitness enthusiasts and athletes of all levels. Checkout the website -> https://enthusiastrun.com"
     },
     {
       title: "NPLC 2025",
       imageUrl: "/images/projects/nplc-project.webp",
-      description: "NPLC 2025 (National Programming and Logic Competition) is an annual coding competition that brings together talented programmers from across the nation. The event aims to foster problem-solving skills, logical thinking, and coding proficiency among participants through a series of challenging programming tasks and algorithmic challenges."
+      description: "NPLC 2025 (National Programming and Logic Competition) is an annual coding competition that brings together talented programmers from across the nation. Checkout the website -> https://nplc.vercel.app."
     },
     {
       title: "RECTORCUP 2026",
       imageUrl: "/images/projects/rectorcup-project.webp",
-      description: "RectorCup 2026 is an annual sports competition held among universities, fostering camaraderie and healthy competition among students. The event features a variety of sports disciplines, encouraging teamwork, sportsmanship, and physical fitness."
+      description: "RectorCup 2026 is an annual sports competition held among universities, fostering camaraderie and healthy competition among students. Checkout the website -> https://rectorcupuc.com"
     },
     {
       title: "SEMBAKO BAYI PONOROGO",
