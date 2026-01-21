@@ -17,7 +17,7 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           script: |
             # 1. Masuk ke folder project (milik user bryan)
-            cd /var/www/bryan/portfolio-bryanfd
+            cd /var/www/websites/bryan/portfolio-bryanfd
             
             # 2. Tarik kode terbaru
             git fetch origin main
