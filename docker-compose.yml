@@ -3,7 +3,7 @@ services:
   ucyenyen_portfolio:
     # INI YANG PENTING: Nama container baru
     container_name: ucyenyen_portfolio_app
-    image: ucyenyen/portfolio-bryan:latest
+    image: ghcr.io/ucyenyen/portfolio-bryan:latest
     restart: unless-stopped
     environment:
       - NODE_ENV=production
