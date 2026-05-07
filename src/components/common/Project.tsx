@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import projectInterface from '@/types/projects.md'
-export default function Project({ title, imageUrl, description }: projectInterface) {
+import Link from 'next/link'
+export default function Project({ title, imageUrl, description, href }: projectInterface) {
   return (
-    <div className='flex flex-col gap-4'>
+    <Link href={href} className='flex flex-col gap-4 hover:cursor-pointer'>
       <div className='relative w-full aspect-square rounded-xl overflow-hidden shadow-lg'>
         <Image
           src={imageUrl}
@@ -21,6 +22,6 @@ export default function Project({ title, imageUrl, description }: projectInterfa
           ? description.split(' ').slice(0, 20).join(' ') + '...'
           : description}
       </p>
-    </div>
+    </Link>
   )
 }
