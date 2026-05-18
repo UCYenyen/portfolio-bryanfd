@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { projects } from '@/types/projects.md';
+import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.href }));
@@ -38,41 +39,46 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
   return (
     <main className="min-h-screen w-full flex flex-col items-center pt-32 pb-24">
-      <article className="w-[85%] max-w-5xl flex flex-col gap-12">
+      <div className="w-[85%] max-w-5xl">
         <Link
           href="/projects"
           className="inline-flex items-center gap-2 text-gray-400 hover:text-white font-futura-medium text-lg w-fit transition-colors"
         >
           <ArrowLeft size={20} /> Back to projects
         </Link>
-
-        <header className="flex flex-col gap-6">
-          <h1 className="text-white font-futura-condensed font-extrabold text-5xl md:text-8xl leading-none">
-            {project.title}
-          </h1>
-          {liveUrl && (
-            <Link
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green px-5 py-2 self-start text-gray rounded-full font-bold text-lg font-futura-condensed hover:underline w-fit"
-            >
-              VISIT LIVE SITE
-            </Link>
-          )}
-        </header>
-
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+      </div>
+      <div className="flex flex-col text-left w-[85%] max-w-5xl items-start justify-start gap-6">
+        <h1 className="text-white w-full font-futura-condensed font-extrabold text-5xl md:text-8xl leading-none">
+          {project.title}
+        </h1>
+        {liveUrl && (
+          <Link
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green px-5 py-2 text-gray rounded-full font-bold text-lg font-futura-condensed hover:underline w-fit"
+          >
+            VISIT LIVE SITE
+          </Link>
+        )}
+      </div>
+      <ContainerScroll
+          titleComponent={
+            <></>
+          }
+        >
           <Image
             src={project.imageUrl}
             alt={project.title}
-            fill
+            height={720}
+            width={1400}
             priority
-            className="object-cover object-center"
-            sizes="(max-width: 768px) 100vw, 85vw"
+            draggable={false}
+            className="mx-auto rounded-2xl object-cover h-full w-full object-center"
           />
-        </div>
+        </ContainerScroll>
 
+      <article className="w-[85%] max-w-5xl flex flex-col gap-12">
         <section className="flex flex-col gap-4">
           <h2 className="text-white font-futura-condensed font-extrabold text-3xl md:text-4xl">
             ABOUT THIS PROJECT
