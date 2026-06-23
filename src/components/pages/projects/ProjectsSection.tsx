@@ -30,10 +30,10 @@ const projects = [
     href: "rectorcup"
   },
   {
-    title: "SEMBAKO BAYI PONOROGO",
-    imageUrl: "/images/projects/sembakobayi-project.webp",
-    description: "Sembako Bayi Ponorogo is a charitable initiative aimed at providing essential food supplies (sembako) to infants and young children in need within the Ponorogo region. This program focuses on improving the nutritional status and overall well-being of vulnerable children by distributing food packages containing staple items such as rice, milk, and other nutritious foods.",
-    href: "sembako-bayi-ponorogo"
+    title: "XCELERATE",
+    imageUrl: "/images/projects/xcelerate/main-menu.webp",
+    description: "XCelerate is a top down real time multiplayer word game for mobile, built by my team for the Amikom game development competition where players race to spell words.",
+    href: "xcelerate"
   },
   {
     title: "THE LITTLE COON",

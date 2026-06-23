@@ -34,6 +34,12 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     .replace(/Checkout the website ->\s*https?:\/\/\S+/i, '')
     .trim();
 
+  const paragraphs = cleanDescription
+    .split(/\n{2,}/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+  const galleryImages = (project.images ?? []).filter((src) => src !== project.imageUrl);
+
   const currentIndex = projects.findIndex((p) => p.href === slug);
   const next = projects[(currentIndex + 1) % projects.length];
 
@@ -79,13 +85,39 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </ContainerScroll>
 
       <article className="w-[85%] max-w-5xl flex flex-col gap-12">
+        {galleryImages.length > 0 && (
+          <section className="flex flex-col gap-6">
+            <h2 className="text-white font-futura-condensed font-extrabold text-3xl md:text-4xl">
+              GALLERY
+            </h2>
+            <div className="flex flex-col gap-6">
+              {galleryImages.map((src) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt={project.title}
+                  width={1600}
+                  height={720}
+                  draggable={false}
+                  className="w-full h-auto rounded-2xl border border-white/10"
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="flex flex-col gap-4">
           <h2 className="text-white font-futura-condensed font-extrabold text-3xl md:text-4xl">
             ABOUT THIS PROJECT
           </h2>
-          <p className="text-gray-400 font-futura-medium text-xl leading-relaxed">
-            {cleanDescription}
-          </p>
+          {paragraphs.map((paragraph, i) => (
+            <p
+              key={i}
+              className="text-gray-400 font-futura-medium text-xl leading-relaxed"
+            >
+              {paragraph}
+            </p>
+          ))}
         </section>
 
         <section className="border-t border-white/10 pt-12 flex justify-between items-center gap-4">
