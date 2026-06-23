@@ -55,6 +55,28 @@ Checkout the website -> https://yendeveloper.itch.io/xcelerate`,
     href: "xcelerate",
   },
   {
+    title: "NUSANTARA REBORN",
+    imageUrl: "/images/projects/nusantara-reborn/main-game.webp",
+    images: [
+      "/images/projects/nusantara-reborn/main-game.webp",
+      "/images/projects/nusantara-reborn/inventory.webp",
+      "/images/projects/nusantara-reborn/powerup.webp",
+      "/images/projects/nusantara-reborn/wabah.webp",
+    ],
+    description: `Nusantara Reborn is a two dimensional nation building simulation game where the player takes over a struggling Indonesia and tries to lead it back toward prosperity. I worked as the only game developer on the team while my teammates handled the design side, so every system in the project was programmed by me. I built the power up draw, the day and night cycle, the unexpected events, the economy, the tax collection, and the user interface, but the feature that pushed me the most is the one I want to focus on here.
+
+The single hardest feature was the AI pathfinding that lets the cars drive around the city on their own while staying on the roads. The difficulty is that Unity's NavMesh system is designed for three dimensional worlds, while Nusantara Reborn is a flat top down two dimensional game, so the standard approach does not simply work. My solution was to adapt the navigation so it behaves correctly on a two dimensional plane, keeping each car sitting flat on the map while the routing still runs underneath it, following the roads and steering around buildings and other cars on its own. Getting the bake, the agent sizes, and the avoidance to feel natural took a lot of trial and error, and it was easily the part of the project that taught me the most.
+
+The journey ran from a single worry all the way to a finished game. My teammate and I started from the concern that the young generation who will one day lead Indonesia rarely get to feel how hard running a country really is, and we shaped that worry into a playable simulation aimed at the idea of Indonesia Emas 2045. From there I built the project up one system at a time, beginning with the time and stat loops, then the buildings and the economy, then the events and the power up draw, and finally the cars and their pathfinding. I tested and iterated until the pieces agreed with one another, produced builds for Windows and macOS, and submitted the finished game to the competition where it was actually played and judged.
+
+The tech stack was Unity 2022.3.62f3 with the Universal Render Pipeline and the two dimensional feature set, and all of the gameplay was written in C#. NavMeshPlus carried the two dimensional navigation, LeanTween handled the user interface animation and transitions, and TextMeshPro handled the text. I wrote the code in Visual Studio Code and used the Unity editor to wire the scriptable objects, scenes, and prefabs together.
+
+In the end the project placed 2nd in the competition, which I am genuinely happy about given that I was the sole programmer on the team. More than the result though, building every system by myself taught me how tightly each one leans on the others, that the time loop, the events, the economy, and the AI all have to agree on the same rules or the whole thing falls apart. The pathfinding in particular taught me to slow down, read the tools carefully, and adapt them to a context they were never built for instead of fighting against them. That patience, along with the habit of checking that a system really works before moving on, is what I will carry into my future projects.
+
+Checkout the website -> https://yendeveloper.itch.io/nusantara-reborn`,
+    href: "nusantara-reborn",
+  },
+  {
     title: "THE LITTLE COON",
     imageUrl: "/images/projects/littlecoon.svg",
     description: "The Little Coon is an immersive action-adventure game that takes players on a thrilling journey through a mysterious and perilous world. Players assume the role of a hero tasked with battling dark forces, solving intricate puzzles, and uncovering hidden secrets to restore light and balance to the realm.",

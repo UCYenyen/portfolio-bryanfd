@@ -36,6 +36,12 @@ const projects = [
     href: "xcelerate"
   },
   {
+    title: "NUSANTARA REBORN",
+    imageUrl: "/images/projects/nusantara-reborn/main-game.webp",
+    description: "Nusantara Reborn is a two dimensional nation building simulation game where the player takes over a struggling Indonesia and leads it back toward prosperity.",
+    href: "nusantara-reborn"
+  },
+  {
     title: "THE LITTLE COON",
     imageUrl: "/images/projects/littlecoon.svg",
     description: "The Little Coon is an immersive action-adventure game that takes players on a thrilling journey through a mysterious and perilous world. Players assume the role of a hero tasked with battling dark forces, solving intricate puzzles, and uncovering hidden secrets to restore light and balance to the realm.",

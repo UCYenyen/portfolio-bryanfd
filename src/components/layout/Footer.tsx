@@ -71,12 +71,12 @@ export default function Footer() {
                         <p>&copy; 2026 BRYAN FERNANDO DINATA</p>
                     </div>
 
-                    <div className="flex flex-wrap justify-center gap-6">
+                    {/* <div className="flex flex-wrap justify-center gap-6">
                         <a href="#" className="hover:text-white underline decoration-gray-600 hover:decoration-white">Accessibility Statement</a>
                         <a href="#" className="hover:text-white underline decoration-gray-600 hover:decoration-white">Privacy Policy</a>
                         <a href="#" className="hover:text-white underline decoration-gray-600 hover:decoration-white">Cookie Policy</a>
                         <a href="#" className="hover:text-white underline decoration-gray-600 hover:decoration-white">Manage Cookies</a>
-                    </div>
+                    </div> */}
                 </div>
 
             </div>
