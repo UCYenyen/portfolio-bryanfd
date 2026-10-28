@@ -42,18 +42,29 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
+          command_timeout: 30m
           script: |
+            set -e
+
+            # Koneksi VPS ke ghcr.io/github.com kadang menggantung, jadi tiap langkah jaringan dicoba ulang.
+            retry() {
+              for i in 1 2 3 4 5 6; do
+                if timeout 300 "$@"; then return 0; fi
+                echo "Percobaan $i gagal: $*"; sleep 10
+              done
+              echo "Gagal setelah 6 percobaan: $*"; return 1
+            }
+
             # 1. Masuk ke folder project
             cd /var/www/websites/bryan/portfolio-bryanfd
-            
+
             # 2. Login ke GHCR di VPS (Gunakan Personal Access Token)
-            echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-            
+            retry sh -c 'echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin'
+
             # 3. Pull image terbaru dan restart
-            git fetch origin main
-            git pull origin main
-            docker compose pull
+            retry git pull origin main
+            retry docker compose pull
             docker compose up -d
-            
+
             # 4. Cleanup
             docker image prune -f
