@@ -22,28 +22,119 @@ Checkout the website -> https://gf-food-predictor.vercel.app/food-log`,
     href: "gf-food-predictor",
   },
   {
+    title: "CHATLY",
+    imageUrl: "/images/projects/chatly/cover.webp",
+    description: `Chatly is a customizable WhatsApp AI customer service chatbot platform that uses Retrieval-Augmented Generation (RAG) to give accurate, context-aware answers grounded in a business's own internal documentation. I built it with my team at Universitas Ciputra between January and June 2026.
+
+I built the complete fullstack web dashboard that lets businesses manage their knowledge bases, configure system prompts and AI personas, and track real-time conversation analytics.
+
+I also engineered the end-to-end RAG pipeline, from document chunking and vector embedding creation to semantic retrieval, so every answer stays fact-based. Uploaded PDF documents are embedded with Jina AI and stored in pgvector, and Gemini Flash writes the replies. The Large Language Model is wired to WhatsApp API endpoints for scalable, high-concurrency automated support.`,
+    href: "chatly",
+  },
+  {
+    title: "CASTRICITY",
+    imageUrl: "/images/projects/castricity/cover.webp",
+    description: `Castricity is a national electricity load forecasting platform powered by a hybrid AI system that processes meteorological and economic data to deliver high-precision energy predictions. I built it with my team at Universitas Ciputra between February and April 2026.
+
+The forecasting core uses Prophet and LightGBM for time-series prediction, while an Isolation Forest model runs real-time anomaly detection to help safeguard grid infrastructure.
+
+To keep every prediction transparent and auditable, the platform applies SHAP to explain which factors drive each forecast, so decisions built on the model can be traced back to the data.`,
+    href: "castricity",
+  },
+  {
+    title: "EC PRESENT",
+    imageUrl: "/images/projects/ec-present/cover.webp",
+    description: `EC Present is an Android app that helps people present with confidence, built with my team at Universitas Ciputra between September and December 2025.
+
+Users record a presentation and the app analyzes their gesture, posture, expression and intonation to rate its quality. It gives an overall grade, a score for each aspect, and AI suggestions for both video and audio delivery.
+
+It also includes a timed QnA practice mode where users answer questions out loud, and a learning hub with lessons on structuring a presentation and building engaging slides. The app is built with Kotlin for Android.`,
+    href: "ec-present",
+  },
+  {
+    title: "ETERNITY",
+    imageUrl: "/images/projects/eternity/cover.webp",
+    description: `Eternity is a hybrid physical and digital rally game built for the Effortion committee at Universitas Ciputra, delivered through DEVO between December 2025 and February 2026.
+
+Players complete challenges at physical posts while the web platform tracks their digital inventories and enforces the game rules.
+
+It is built with Next.js, TypeScript, Prisma and PostgreSQL, with Socket.IO powering a real-time leaderboard and instant action feedback across game phases. The platform was deployed with Docker so the event ran smoothly under high concurrent player activity.`,
+    href: "eternity",
+  },
+  {
+    title: "ENTHUSIAST FOAM RUN 2026",
+    imageUrl: "/images/projects/enthusiast-project.webp",
+    description: `The registration and race pack collection website for Enthusiast Foam Run 2026, a marathon hosted by Universitas Ciputra, built through DEVO between December 2025 and May 2026.
+
+I built the online registration flow and the race pack collection system. The site handled 600+ runner registrations and 300+ visitors while keeping the experience smooth across mobile and desktop throughout the event. Built with Next.js.
+
+Checkout the website -> https://enthusiastrun.com`,
+    href: "enthusiastrun",
+  },
+  {
+    title: "RECTORCUP 2026",
+    imageUrl: "/images/projects/rectorcup-project.webp",
+    description: `The official website for Rector Cup UC 2026, a digital platform that streamlines sports competition registrations and delivers real-time live scores for participants and spectators, built between August 2025 and February 2026.
+
+As Website Development Coordinator I led 5 developers, shaped the core application architecture and assigned development tasks across the team. We built an online registration workflow for individual and team sign-ups across various sports branches, and a live scoring feature that pushes instant, accurate match updates.
+
+Built with Next.js, Socket.IO, Prisma and PostgreSQL, the portal shipped on schedule for about 100 registered participants. Source code: https://github.com/UCYenyen/rectorcupuc-2026
+
+Checkout the website -> https://rectorcupuc.vercel.app`,
+    href: "rectorcup",
+  },
+  {
+    title: "13TH NPLC",
+    imageUrl: "/images/projects/nplc-project.webp",
+    description: `The official website for the 13th National Programming and Logic Competition (NPLC), a web platform that streamlines the entire event registration process, built with my team between July and November 2025.
+
+I built an intuitive, user-friendly interface that handles participant profiles, team sign-ups and secure document submissions, with a responsive experience across all devices throughout the competition lifecycle. Built with TypeScript and Tailwind CSS. Source code: https://github.com/IMT-SU-25-26/13th-NPLC
+
+Checkout the website -> https://nplc.vercel.app`,
+    href: "nplc",
+  },
+  {
     title: "O-WEEK 2025",
     imageUrl: "/images/projects/oweek-project.webp",
     description: "O-WEEK 2025 is an exciting event organized for new students at Universitas Ciputra. Checkout the website -> https://oweek-2025-fix.vercel.app.",
     href: "o-week-2025",
   },
   {
-    title: "ENTHUSIAST RUN",
-    imageUrl: "/images/projects/enthusiast-project.webp",
-    description: "Enthusiast Run is a thrilling running event designed for fitness enthusiasts and athletes of all levels. Checkout the website -> https://enthusiastrun.com",
-    href: "enthusiastrun",
+    title: "BIBITZ",
+    imageUrl: "/images/projects/bibitz/cover.webp",
+    description: `Bibitz is a survival game about food sustainability, built between August and September 2026 as a submission to HoloGame by HOLOGY 9.0.
+
+The game is about MBG (Makanan Bergizi Gratis), Kopdes (Koperasi Desa Merah Putih) and SPPG. The player is a farmer who explores a procedurally generated world to find seeds and rare materials, farms the land, and supplies the SPPG with nutritious meals for MBG before the village runs out of food.
+
+Under the hood the game is built on object-oriented programming, with A* pathfinding driving its characters.
+
+Checkout the website -> https://yendeveloper.itch.io/bibitz`,
+    href: "bibitz",
   },
   {
-    title: "NPLC 2025",
-    imageUrl: "/images/projects/nplc-project.webp",
-    description: "NPLC 2025 (National Programming and Logic Competition) is an annual coding competition that brings together talented programmers from across the nation. Checkout the website -> https://nplc.vercel.app.",
-    href: "nplc",
+    title: "THE LAST SPARK",
+    imageUrl: "/images/projects/the-last-spark/1.webp",
+    images: [
+      "/images/projects/the-last-spark/1.webp",
+      "/images/projects/the-last-spark/2.webp",
+      "/images/projects/the-last-spark/3.webp",
+    ],
+    description: `The Last Spark is a 2D top-down action RPG and my entry for the Compfest IGI (Indie Game Ignite) Game Jam 2025, built around the theme "Exploring the Unknown".
+
+Players are sent by a deity to a mysterious world succumbing to an eternal freeze. With no natural light left, they carry a magical torch, the world's last remaining spark, and must save its inhabitants from the encroaching darkness.
+
+Technically, it is built in Unity and C# on object-oriented principles for clean, modular code. Scriptable Objects decouple data from logic so items, NPCs and enemies are easy to create and manage, and an object pooling system handles projectiles and effects to cut garbage collection and keep gameplay smooth.
+
+Checkout the website -> https://yendeveloper.itch.io/thelastspark`,
+    href: "the-last-spark",
   },
   {
-    title: "RECTORCUP 2026",
-    imageUrl: "/images/projects/rectorcup-project.webp",
-    description: "RectorCup 2026 is an annual sports competition held among universities, fostering camaraderie and healthy competition among students. Checkout the website -> https://rectorcupuc.vercel.app",
-    href: "rectorcup",
+    title: "FUNDATION",
+    imageUrl: "/images/projects/fundation/cover.webp",
+    description: `Fundation is an interactive WebGL tycoon game built with Unity to make financial literacy education fun and accessible, completed as a hackathon project within one week in July 2025.
+
+Our mission was to turn complex financial concepts into an engaging learning experience. The game blends game design with educational goals under a tight deadline, and is embedded into a website built with Next.js.`,
+    href: "fundation",
   },
   {
     title: "XCELERATE",

@@ -27,9 +27,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+// Only the "Checkout the website -> <url>" sentence drives the live-site button;
+// other URLs in the copy (e.g. source code links) are left as text.
 function extractUrl(text: string): string | null {
-  const match = text.match(/https?:\/\/[^\s.,)]+(?:\.[^\s.,)]+)*/);
-  return match ? match[0] : null;
+  const match = text.match(/Checkout the website ->\s*(https?:\/\/[^\s,)]+?)\.?(?:\s|$)/i);
+  return match ? match[1] : null;
 }
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
