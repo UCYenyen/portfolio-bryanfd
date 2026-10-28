@@ -10,6 +10,7 @@ RUN corepack enable && corepack prepare pnpm@10.17.0 --activate
 
 # Copy package files
 COPY package.json pnpm-lock.yaml* ./
+COPY prisma ./prisma
 
 # Install dependencies (frozen lockfile untuk konsistensi)
 RUN pnpm i --frozen-lockfile
@@ -34,6 +35,7 @@ RUN pnpm run build
 # Stage 3: Production Runner
 # -----------------------------------------------------------------------------
 FROM node:20-alpine AS runner
+RUN apk add --no-cache openssl
 WORKDIR /app
 
 ENV NODE_ENV production

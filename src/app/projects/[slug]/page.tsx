@@ -2,15 +2,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
-import { projects } from '@/types/projects.md';
+import { getProjects } from '@/lib/projects';
+
+export const revalidate = 60;
+export const dynamicParams = true;
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 
-export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.href }));
+export async function generateStaticParams() {
+  return (await getProjects()).map((p) => ({ slug: p.href }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const projects = await getProjects();
   const project = projects.find((p) => p.href === slug);
   if (!project) return {};
   return {
@@ -26,6 +30,7 @@ function extractUrl(text: string): string | null {
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const projects = await getProjects();
   const project = projects.find((p) => p.href === slug);
   if (!project) notFound();
 

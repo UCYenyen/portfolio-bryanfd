@@ -43,3 +43,7 @@ When adding a project, two conventions in `[slug]/page.tsx` matter:
 - **Tailwind v4**, configured entirely in `src/app/globals.css` via `@theme inline` (no `tailwind.config`). Dark UI by default: `--background: #111111`.
 - **Brand color tokens** are defined in `:root` and exposed as Tailwind utilities: `--green (#CAF291)`, `--pink (#FFB3DB)`, `--gray (#262626)` → use as `bg-green`, `text-pink`, `bg-gray`, etc.
 - **Fonts**: the design uses a custom **Futura** family loaded via `@font-face` in `globals.css` from `/public/fonts/*` (Regular/Bold/Black/Light/Medium/Heavy/Book/Condensed). These map to utilities like `font-futura-condensed`, `font-futura-medium`, etc. — used heavily across components. Note `layout.tsx` separately loads Geist via `next/font`, but the visible typography is Futura; reach for `font-futura-*` classes, not the Geist defaults.
+
+## Git commits
+
+Never list Claude or any other AI/agentic tool as an author or co-author. No `Co-Authored-By:` lines, AI session links, or "Generated with …" trailers in commit messages or PR descriptions. Commits are authored by the repo owner only.
