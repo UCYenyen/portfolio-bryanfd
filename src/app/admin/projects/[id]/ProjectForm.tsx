@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useActionState } from 'react';
 import { saveProjectAction } from '../../actions';
@@ -24,6 +25,14 @@ export default function ProjectForm({ initial }: { initial: Initial }) {
       {initial.id && <input type="hidden" name="id" value={initial.id} />}
       <label className={label}>Title<input name="title" defaultValue={initial.title} required className={input} /></label>
       <label className={label}>Slug (URL)<input name="slug" defaultValue={initial.slug} required className={input} /></label>
+      {initial.imageUrl && (
+        <div className="flex flex-col gap-2 text-gray-400 font-futura-medium">
+          Current cover
+          <div className="relative w-full max-w-sm aspect-video rounded-xl overflow-hidden bg-gray">
+            <Image src={initial.imageUrl} alt={initial.title} fill sizes="384px" className="object-cover" />
+          </div>
+        </div>
+      )}
       <label className={label}>Cover image (upload, auto-converted to WebP)<input name="coverFile" type="file" accept="image/*" className={input} /></label>
       <label className={label}>…or cover image URL<input name="imageUrl" defaultValue={initial.imageUrl} className={input} placeholder="/images/projects/foo.webp" /></label>
       <label className={label}>Add gallery images (upload, auto-converted to WebP)<input name="galleryFiles" type="file" accept="image/*" multiple className={input} /></label>
