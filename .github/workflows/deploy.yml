@@ -2,58 +2,61 @@ name: Deploy Ucyenyen Portfolio
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ucyenyen/portfolio-bryan
+  IMAGE_NAME: ghcr.io/ucyenyen/portfolio-bryan:latest
+  APP_DIR: /var/www/websites/bryan/portfolio-bryanfd
 
+# VPS tidak bisa konek ke ghcr.io / github.com dengan stabil, jadi image di-build di sini,
+# dikirim ke VPS sebagai file .tar.gz lewat SSH, lalu di-load (bukan di-pull).
 jobs:
-  build-and-push:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Log in to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          load: true
+          tags: ${{ env.IMAGE_NAME }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to VPS via SSH
-        uses: appleboy/ssh-action@master
+      - name: Export image
+        run: docker save ${{ env.IMAGE_NAME }} | gzip > portfolio-image.tar.gz
+
+      - name: Copy image and compose file to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          source: "portfolio-image.tar.gz,docker-compose.yml"
+          target: ${{ env.APP_DIR }}
+
+      - name: Load image and restart on VPS
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
           script: |
-            # 1. Masuk ke folder project
-            cd /var/www/websites/bryan/portfolio-bryanfd
-            
-            # 2. Login ke GHCR di VPS (Gunakan Personal Access Token)
-            echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-            
-            # 3. Pull image terbaru dan restart
-            git fetch origin main
-            git pull origin main
-            docker compose pull
+            set -e
+            cd ${{ env.APP_DIR }}
+
+            # Sinkronkan kode kalau GitHub bisa dijangkau; deploy tidak bergantung pada ini.
+            timeout 60 git pull --ff-only origin main || echo "git pull dilewati (GitHub tidak bisa dijangkau)"
+
+            gunzip -c portfolio-image.tar.gz | docker load
+            rm -f portfolio-image.tar.gz
             docker compose up -d
-            
-            # 4. Cleanup
             docker image prune -f
