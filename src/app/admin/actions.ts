@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { login, logout, requireUser } from '@/lib/auth';
+import { isUpload, saveImageAsWebp } from '@/lib/images';
 
 export async function loginAction(_: string | null, formData: FormData) {
   const ok = await login(String(formData.get('identifier') ?? ''), String(formData.get('password') ?? ''));
@@ -34,6 +35,15 @@ export async function saveProjectAction(_: string | null, formData: FormData) {
     images: String(formData.get('images') ?? '').split('\n').map((s) => s.trim()).filter(Boolean),
     order: Number(formData.get('order')) || 0,
   };
+  try {
+    const cover = formData.get('coverFile');
+    if (isUpload(cover)) data.imageUrl = await saveImageAsWebp(cover);
+    for (const file of formData.getAll('galleryFiles')) {
+      if (isUpload(file)) data.images.push(await saveImageAsWebp(file));
+    }
+  } catch {
+    return 'One of the uploaded files is not a valid image.';
+  }
   if (!data.title || !data.imageUrl || !data.description) return 'Title, cover image and description are required.';
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return 'Slug must be lowercase letters, numbers and dashes.';
 

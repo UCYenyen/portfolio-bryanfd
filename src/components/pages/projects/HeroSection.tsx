@@ -73,7 +73,7 @@ export default function HeroSection() {
                 <h1 className="hero-title text-4xl md:text-7xl xl:text-9xl text-pink font-futura-condensed font-extrabold leading-6 md:leading-14 xl:leading-26">BUILT TO SOLVE</h1>
 
                 <h4 className="hero-subtitle mt-2 text-md md:text-xl text-gray-400 font-futura-medium w-[70%] md:w-1/2 text-center leading-6 md:leading-8">
-                    Crafting innovative digital solutions that drive success, transforming ideas into impactful products such as websites, applications, or games tailored to your needs.
+                    Crafting innovative digital solutions that drive success, transforming ideas into impactful products such as AI-powered web apps, machine learning models, and fullstack applications tailored to your needs.
                 </h4>
             </div>
         </section>

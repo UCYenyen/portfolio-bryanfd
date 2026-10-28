@@ -50,8 +50,8 @@ export default function ServicesSection() {
 
             <div className="service-card">
                 <Services 
-                    title="Game Development" 
-                    description="Design and develop engaging and interactive games." 
+                    title="AI/ML Development" 
+                    description="Train, evaluate, and ship machine learning models integrated into real products." 
                     titleClassName='bg-yellow-200' 
                 />
             </div>

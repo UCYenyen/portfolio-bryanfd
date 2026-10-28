@@ -73,7 +73,7 @@ export default function HeroSection() {
                 <h1 className="hero-title text-4xl md:text-7xl xl:text-9xl text-pink font-futura-condensed font-extrabold leading-6 md:leading-14 xl:leading-26">DO FOR YOU</h1>
 
                 <h4 className="hero-subtitle mt-2 text-md md:text-xl text-gray-400 font-futura-medium w-[70%] md:w-1/2 text-center leading-6 md:leading-8">
-                    We provide a wide range of services to help you achieve your goals. From web development, application development, to game development. Our team of experts is here to support you every step of the way.
+                    We provide a wide range of services to help you achieve your goals. From fullstack web development and application development to AI and machine learning solutions. Our team of experts is here to support you every step of the way.
                 </h4>
             </div>
         </section>

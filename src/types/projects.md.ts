@@ -8,6 +8,20 @@ export default interface projectInterface {
 
 export const projects: projectInterface[] = [
   {
+    title: "GF FOOD PREDICTOR",
+    imageUrl: "/images/projects/gf-food-predictor.webp",
+    description: `GF Food Predictor is a fullstack machine learning web app that predicts what my girlfriend wants to eat, trained on her own eating history. Every meal is logged with its date, day of the week, whether it fell on a weekend, the meal type, her mood, and the budget, and that log becomes the training data for the model.
+
+Under the hood it is a supervised learning classification problem. The logged features are encoded and fed into a Random Forest classifier, which learns patterns such as which dishes she reaches for at lunch on a weekday when she is happy and on a tight budget, and returns the most likely food for a new situation. A random forest suited this data well because it handles a mix of categorical and numeric features, copes with a small and noisy personal dataset, and is far less prone to overfitting than a single decision tree.
+
+The app side is built with Next.js, Prisma, and PostgreSQL. It gives a clean food log where meals can be added, edited, and deleted, a tracked meals table, and a CSV export so the dataset can be pulled straight into the training pipeline. Keeping data collection, storage, and prediction in one product meant the model gets better simply by using the app every day.
+
+The project taught me the full loop of applied machine learning end to end: designing what data to collect, building the product that collects it, choosing and training a model that fits the data, and serving predictions back to a real user.
+
+Checkout the website -> https://gf-food-predictor.vercel.app/food-log`,
+    href: "gf-food-predictor",
+  },
+  {
     title: "O-WEEK 2025",
     imageUrl: "/images/projects/oweek-project.webp",
     description: "O-WEEK 2025 is an exciting event organized for new students at Universitas Ciputra. Checkout the website -> https://oweek-2025-fix.vercel.app.",
@@ -39,7 +53,7 @@ export const projects: projectInterface[] = [
       "/images/projects/xcelerate/main-game.webp",
       "/images/projects/xcelerate/tutorial.webp",
     ],
-    description: `XCelerate is a top down real time multiplayer word game for mobile, built by my team and me as a group project for the Amikom game development competition. My role was the game developer, so all of the code was mine to design and wire together. The idea was to make learning English and Bahasa Indonesia vocabulary feel like a match you actually want to win instead of studying, where up to five players race around one arena, collect scattered letter tiles to spell a target word, and submit it at a station before the timer runs out.
+    description: `XCelerate is a top down real time multiplayer word game for mobile, built by my team and me as a group project for the Amikom game development competition. My role was the sole programmer, so all of the code was mine to design and wire together. The idea was to make learning English and Bahasa Indonesia vocabulary feel like a match you actually want to win instead of studying, where up to five players race around one arena, collect scattered letter tiles to spell a target word, and submit it at a station before the timer runs out.
 
 The feature I cared about most was the multiplayer abilities system, where every character carries a unique power that can bend the rules of the match. Time Stop freezes the match for everyone in the room while the caster keeps moving and grabbing letters. Super Speed gives the caster a short burst of extra movement speed. Reshuffle Letters wipes every tile off the arena and respawns the whole set in new positions, resetting the board for everyone at once. Immunity is a passive guard that cancels the next hit of damage. And some characters carry no power at all, just pure spelling skill.
 
@@ -63,7 +77,7 @@ Checkout the website -> https://yendeveloper.itch.io/xcelerate`,
       "/images/projects/nusantara-reborn/powerup.webp",
       "/images/projects/nusantara-reborn/wabah.webp",
     ],
-    description: `Nusantara Reborn is a two dimensional nation building simulation game where the player takes over a struggling Indonesia and tries to lead it back toward prosperity. I worked as the only game developer on the team while my teammates handled the design side, so every system in the project was programmed by me. I built the power up draw, the day and night cycle, the unexpected events, the economy, the tax collection, and the user interface, but the feature that pushed me the most is the one I want to focus on here.
+    description: `Nusantara Reborn is a two dimensional nation building simulation game where the player takes over a struggling Indonesia and tries to lead it back toward prosperity. I worked as the only programmer on the team while my teammates handled the design side, so every system in the project was programmed by me. I built the power up draw, the day and night cycle, the unexpected events, the economy, the tax collection, and the user interface, but the feature that pushed me the most is the one I want to focus on here.
 
 The single hardest feature was the AI pathfinding that lets the cars drive around the city on their own while staying on the roads. The difficulty is that Unity's NavMesh system is designed for three dimensional worlds, while Nusantara Reborn is a flat top down two dimensional game, so the standard approach does not simply work. My solution was to adapt the navigation so it behaves correctly on a two dimensional plane, keeping each car sitting flat on the map while the routing still runs underneath it, following the roads and steering around buildings and other cars on its own. Getting the bake, the agent sizes, and the avoidance to feel natural took a lot of trial and error, and it was easily the part of the project that taught me the most.
 
@@ -75,23 +89,5 @@ In the end the project placed 2nd in the competition, which I am genuinely happy
 
 Checkout the website -> https://yendeveloper.itch.io/nusantara-reborn`,
     href: "nusantara-reborn",
-  },
-  {
-    title: "THE LITTLE COON",
-    imageUrl: "/images/projects/littlecoon.svg",
-    description: "The Little Coon is an immersive action-adventure game that takes players on a thrilling journey through a mysterious and perilous world. Players assume the role of a hero tasked with battling dark forces, solving intricate puzzles, and uncovering hidden secrets to restore light and balance to the realm.",
-    href: "the-little-coon",
-  },
-  {
-    title: "ISEKO : ISEKAI KONEKO",
-    imageUrl: "/images/projects/iseko.svg",
-    description: "Iseko : Isekai Koneko is an enchanting fantasy game that transports players to a magical world filled with adorable cat companions. Players embark on a quest to save the realm from darkness, utilizing unique abilities and forming bonds with their feline allies to overcome challenges and uncover the secrets of the isekai universe.",
-    href: "iseko",
-  },
-  {
-    title: "DARKNESS EVOLUTION",
-    imageUrl: "/images/projects/darknessevo.svg",
-    description: "Darkness Evolution is an immersive action-adventure game that takes players on a thrilling journey through a mysterious and perilous world. Players assume the role of a hero tasked with battling dark forces, solving intricate puzzles, and uncovering hidden secrets to restore light and balance to the realm.",
-    href: "darkness-evolution",
   },
 ];

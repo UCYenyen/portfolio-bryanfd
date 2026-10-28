@@ -20,12 +20,14 @@ const label = 'flex flex-col gap-2 text-gray-400 font-futura-medium';
 export default function ProjectForm({ initial }: { initial: Initial }) {
   const [error, action, pending] = useActionState(saveProjectAction, null);
   return (
-    <form action={action} className="flex flex-col gap-5">
+    <form action={action} encType="multipart/form-data" className="flex flex-col gap-5">
       {initial.id && <input type="hidden" name="id" value={initial.id} />}
       <label className={label}>Title<input name="title" defaultValue={initial.title} required className={input} /></label>
       <label className={label}>Slug (URL)<input name="slug" defaultValue={initial.slug} required className={input} /></label>
-      <label className={label}>Cover image URL<input name="imageUrl" defaultValue={initial.imageUrl} required className={input} placeholder="/images/projects/foo.webp" /></label>
-      <label className={label}>Gallery images (one per line)<textarea name="images" defaultValue={initial.images.join('\n')} rows={4} className={input} /></label>
+      <label className={label}>Cover image (upload, auto-converted to WebP)<input name="coverFile" type="file" accept="image/*" className={input} /></label>
+      <label className={label}>…or cover image URL<input name="imageUrl" defaultValue={initial.imageUrl} className={input} placeholder="/images/projects/foo.webp" /></label>
+      <label className={label}>Add gallery images (upload, auto-converted to WebP)<input name="galleryFiles" type="file" accept="image/*" multiple className={input} /></label>
+      <label className={label}>Gallery image URLs (one per line)<textarea name="images" defaultValue={initial.images.join('\n')} rows={4} className={input} /></label>
       <label className={label}>
         Description (blank line = new paragraph; end with &quot;Checkout the website -&gt; https://…&quot; for the live-site button)
         <textarea name="description" defaultValue={initial.description} required rows={14} className={input} />

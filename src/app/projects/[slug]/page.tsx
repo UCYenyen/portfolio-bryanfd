@@ -17,9 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const projects = await getProjects();
   const project = projects.find((p) => p.href === slug);
   if (!project) return {};
+  const summary = project.description.replace(/Checkout the website ->\s*\S+/i, '').split(/\n/)[0].trim();
+  const description = summary.length > 160 ? summary.slice(0, 157).trimEnd() + '...' : summary;
   return {
     title: project.title,
-    description: project.description,
+    description,
+    alternates: { canonical: `/projects/${project.href}` },
+    openGraph: { title: project.title, description, images: [project.imageUrl] },
   };
 }
 

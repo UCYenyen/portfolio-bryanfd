@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LogoLoop from '@/components/common/LogoLoop';
 import LiquidEther from "@/components/common/LiquidEther";
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiLaravel, SiUnity, SiPrisma, SiPostgresql, SiPhp, SiDocker, SiNginx, SiExpress, SiMongodb, SiSupabase, SiKotlin, SiAndroidstudio, SiSwift, SiPusher, SiSocketdotio } from 'react-icons/si';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiLaravel, SiPython, SiScikitlearn, SiPandas, SiPrisma, SiPostgresql, SiPhp, SiDocker, SiNginx, SiExpress, SiMongodb, SiSupabase, SiKotlin, SiAndroidstudio, SiSwift, SiPusher, SiSocketdotio } from 'react-icons/si';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,7 +53,9 @@ export default function HeroSection() {
         { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
         { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
         { node: <SiLaravel />, title: "Laravel", href: "https://laravel.com" },
-        { node: <SiUnity />, title: "Unity", href: "https://unity.com" },
+        { node: <SiPython />, title: "Python", href: "https://www.python.org" },
+        { node: <SiScikitlearn />, title: "scikit-learn", href: "https://scikit-learn.org" },
+        { node: <SiPandas />, title: "pandas", href: "https://pandas.pydata.org" },
         { node: <SiPrisma />, title: "Prisma", href: "https://prisma.io" },
         { node: <SiPostgresql />, title: "PostgreSQL", href: "https://www.postgresql.org" },
         { node: <SiPhp />, title: "PHP", href: "https://www.php.net" },
@@ -93,12 +95,14 @@ export default function HeroSection() {
                 </div>
             </div>
             <div className="flex flex-col justify-center items-center h-[80vh] w-full gap-4 text-center overflow-hidden">
-                <h1 className="hero-title text-4xl md:text-7xl xl:text-9xl text-white font-futura-condensed font-extrabold leading-6 md:leading-14 xl:leading-26">HELLO {"I'M BRYAN"}</h1>
-                <h1 className="hero-title text-4xl md:text-7xl xl:text-9xl text-pink font-futura-condensed font-extrabold leading-6 md:leading-14 xl:leading-26">A FULLSTACK DEVELOPER</h1>
-                <h1 className="hero-title text-4xl md:text-7xl xl:text-9xl text-white font-futura-condensed font-extrabold leading-6 md:leading-14 xl:leading-26">& A GAME DEVELOPER</h1>
+                <h1 className="flex flex-col items-center gap-4">
+                    <span className="block hero-title text-4xl md:text-7xl xl:text-9xl text-white font-futura-condensed font-extrabold leading-6 md:leading-14 xl:leading-26">HELLO {"I'M BRYAN"}</span>
+                    <span className="block hero-title text-4xl md:text-7xl xl:text-9xl text-pink font-futura-condensed font-extrabold leading-6 md:leading-14 xl:leading-26">A FULLSTACK</span>
+                    <span className="block hero-title text-4xl md:text-7xl xl:text-9xl text-white font-futura-condensed font-extrabold leading-6 md:leading-14 xl:leading-26">AI/ML DEVELOPER</span>
+                </h1>
 
                 <h4 className="hero-subtitle mt-2 text-md md:text-xl text-gray-400 font-futura-medium w-[70%] md:w-1/2 text-center leading-6 md:leading-8">
-                    Engineering the future of your business with robust web architecture, next-generation gaming experiences, and reliable tech services that drive digital transformation.
+                    Building intelligent products end to end, from machine learning models that learn from real data to the fullstack web apps that put them in front of users.
                 </h4>
             </div>
 
